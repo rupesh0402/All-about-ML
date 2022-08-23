@@ -1,0 +1,41 @@
+Steps For Implementing A Linear Regression Model:
+
+You need to Import Pandas for Storing Data so that we can analyze it.
+from pandas import the dataframe that will help you separate data.
+it takes file name and the column as input.
+/*
+data = pandas.read_csv('cost_revenue_clean.csv') // will read the csv file
+
+X= DataFrame(data,columns=['production_budget_usd']) //store the data in X variable
+Y= DataFrame(data,columns=['worldwide_gross_usd']) // store the data in Y variable
+
+
+
+Matplotlib is Used to Plot the data on the Screen using the pyplot Module.
+import matplotlib.pylot as plt
+
+plt.figure(figsize=(10,6))                     //to increase the size of the figure by it width and height
+plt.scatter(X,Y,alpha=0.3)                     // plotting the points on the screen -- alpha is for transparency
+plt.title("Film Cost Vs Global Revenue")       // main title of the graph
+plt.xlabel("Production Budget $")              // the label of X axis
+plt.ylabel("Worldwide Gross $")                // label Y axis
+plt.ylim(0,3000000000)                         // putting a certain limit on data on Y and X axis
+plt.xlim(0,450000000)
+plt.show()                                     // the main command that shows the graph on the screen
+
+The real machine Learning Algorithms are taken from the Sklearn Module.
+
+sklearn consist of several methods of machine learning so we need to import the linear regression model for this one.
+
+from sklearn.linear_model import LinearRegression // this will import the linear regression model
+
+regression = LinearRegression()   // creating a linearRegression object to use
+regression.fit(X,Y)               // fitting the data
+
+regression.coef_  //slope of the line
+regression.intercept_  //intercept
+
+#line plotting -- the Linear regression Line
+plt.plot(X, regression.predict(X), color ='red', linewidth=4)
+
+regression.score(X,Y) #Goodness of Fit
